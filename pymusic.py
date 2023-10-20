@@ -41,6 +41,6 @@ def baixar_e_converter_musica(link):
 with open(arquivo_links, 'r') as file:
     links = file.read().splitlines()
 
-# Baixa e converte cada música da lista
+# Baixa e converte cada música da lista!
 for link in links:
     baixar_e_converter_musica(link)
