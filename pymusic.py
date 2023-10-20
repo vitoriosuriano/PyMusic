@@ -7,7 +7,6 @@ arquivo_links = 'linkmusicas.txt'
 
 # Diretório onde você deseja salvar as músicas
 diretorio_destino = r'C:\Users\Valid\Desktop\Musicas'
-
 # Diretório onde você deseja salvar as músicas mp4 de auxiliar
 diretorio_destino_mp4 = r'C:\Users\Valid\Desktop\Musicas\bin'
 
