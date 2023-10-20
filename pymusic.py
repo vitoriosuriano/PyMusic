@@ -37,7 +37,7 @@ def baixar_e_converter_musica(link):
     except Exception as e:
         print(f'Erro ao baixar/converter {link}: {str(e)}')
 
-# Lê os links do arquivo
+# Lê os links do arquivo &
 with open(arquivo_links, 'r') as file:
     links = file.read().splitlines()
 
