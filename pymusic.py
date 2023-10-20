@@ -1,12 +1,11 @@
 from pytube import YouTube
-from moviepy.editor import VideoFileClip
-import os
+from moviepy.editor import AudioFileClip
 
 # Nome do arquivo que contém os links das músicas
 arquivo_links = 'linkmusicas.txt'
 
 # Diretório onde você deseja salvar as músicas
-diretorio_destino = r'C:\Users\Valid\Desktop\Musicas'
+diretorio_destino_mp3 = r'C:\Users\Valid\Desktop\Musicas'
 # Diretório onde você deseja salvar as músicas mp4 de auxiliar
 diretorio_destino_mp4 = r'C:\Users\Valid\Desktop\Musicas\bin'
 
@@ -15,17 +14,16 @@ def baixar_e_converter_musica(link):
     try:
         yt = YouTube(link)
 
-        # Baixe o vídeo
+        # Baixe o vídeo em formato MP4
         stream = yt.streams.filter(only_audio=True, file_extension='mp4').first()
-        stream.download(output_path=diretorio_destino_mp4)
+        stream.download(output_path=diretorio_destino_mp3)
         print(f'{yt.title} baixada com sucesso em formato MP4!')
 
         # Converta o arquivo MP4 em MP3
-        caminho_arquivo_mp4 = os.path.join(diretorio_destino_mp4, f'{yt.title}.mp4')
-        caminho_arquivo_mp3 = os.path.join(diretorio_destino, f'{yt.title}.mp3')
-        video_clip = VideoFileClip(caminho_arquivo_mp4)
-        audio_clip = video_clip.audio
-        audio_clip.write_audiofile(caminho_arquivo_mp3)
+        caminho_arquivo_mp4 = os.path.join(diretorio_destino_mp3, f'{yt.title}.mp4')
+        caminho_arquivo_mp3 = os.path.join(diretorio_destino_mp3, f'{yt.title}.mp3')
+        video_clip = AudioFileClip(caminho_arquivo_mp4)
+        video_clip.write_audiofile(caminho_arquivo_mp3)
         video_clip.close()
         audio_clip.close()
         print(f'{yt.title} convertida para MP3 com sucesso!')
@@ -45,4 +43,4 @@ with open(arquivo_links, 'r') as file:
 for link in links:
     baixar_e_converter_musica(link)
 
-# teste de push pelo vs22
+# teste de push pelo vs22 testando o visual
